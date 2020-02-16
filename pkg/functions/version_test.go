@@ -6,7 +6,7 @@ import (
 
 	"get.porter.sh/porter/pkg/porter/version"
 	"get.porter.sh/porter/pkg/printer"
-	"github.com/squillace/porter-azure-functions/pkg"
+	"github.com/jeffhollan/func-cli-mixin/pkg"
 	"github.com/stretchr/testify/require"
 )
 

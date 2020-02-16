@@ -9,7 +9,7 @@ structure of this project matches closely with existing Porter [Mixins](https://
 1. We recommend using Go 1.12 without go modules.
 1. Rename the `cmd/functions` and `pkg/functions` directories to `cmd/YOURMIXIN` and
    `pkg/YOURMIXIN`.
-1. Find the text `github.com/squillace/porter-azure-functions/pkg/functions` in the repository and change it to 
+1. Find the text `github.com/jeffhollan/func-cli-mixin/pkg/functions` in the repository and change it to 
     `github.com/YOURNAME/YOURREPO/pkg/YOURMIXIN`.
 1. Find any remaining `functions` text in the repository and replace it with `YOURMIXIN`.
 1. In `pkg/YOURMIXIN/version.go` replace `YOURNAME` with the name you would like displayed as the mixin

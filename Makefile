@@ -1,5 +1,5 @@
 MIXIN = functions
-PKG = github.com/squillace/porter-azure-functions
+PKG = github.com/jeffhollan/func-cli-mixin
 SHELL = bash
 
 PORTER_HOME ?= $(HOME)/.porter

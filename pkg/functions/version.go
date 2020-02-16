@@ -3,7 +3,7 @@ package functions
 import (
 	"get.porter.sh/porter/pkg/mixin"
 	"get.porter.sh/porter/pkg/porter/version"
-	"github.com/squillace/porter-azure-functions/pkg"
+	"github.com/jeffhollan/func-cli-mixin/pkg"
 )
 
 func (m *Mixin) PrintVersion(opts version.Options) error {

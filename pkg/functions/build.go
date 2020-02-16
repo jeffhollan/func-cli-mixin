@@ -14,20 +14,29 @@ import "fmt"
 // apt-get update && apt-get install azure-cli
 // `
 
+// curl -s https://api.github.com/repos/azure/azure-functions-core-tools/releases/latest \
+// | grep "browser_download_url.*linux-x64.*zip\"" \
+// | cut -d : -f 2,3 \
+// | tr -d \" \
+// | wget -qi -
+//
+// unzip Azure.Functions.*.zip -d /func-cli
+// chmod +x /func-cli/func
+//
+// ln -s /func-cli/func /usr/bin/func
+
 // Build will generate the necessary Dockerfile lines
 // for an invocation image using this mixin
 func (m *Mixin) Build() error {
 
-	fmt.Fprintln(m.Out, `RUN apt-get update`)
-	fmt.Fprintln(m.Out, `RUN apt-get install -y wget gnupg gnupg2 apt-transport-https`)
-	fmt.Fprintln(m.Out, `RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.asc.gpg`)
-	fmt.Fprintln(m.Out, `RUN mv microsoft.asc.gpg /etc/apt/trusted.gpg.d/`)
-	fmt.Fprintln(m.Out, `RUN wget -q https://packages.microsoft.com/config/debian/9/prod.list`)
-	fmt.Fprintln(m.Out, `RUN mv prod.list /etc/apt/sources.list.d/microsoft-prod.list`)
-	fmt.Fprintln(m.Out, `RUN chown root:root /etc/apt/trusted.gpg.d/microsoft.asc.gpg`)
-	fmt.Fprintln(m.Out, `RUN chown root:root /etc/apt/sources.list.d/microsoft-prod.list`)
-	fmt.Fprintln(m.Out, `RUN apt-get update`)
-	fmt.Fprintln(m.Out, `RUN apt-get install -y azure-functions-core-tools`)
+	fmt.Fprintln(m.Out, `RUN curl -s https://api.github.com/repos/azure/azure-functions-core-tools/releases/latest \`)
+	fmt.Fprintln(m.Out, `| grep "browser_download_url.*linux-x64.*zip\"" \`)
+	fmt.Fprintln(m.Out, `| cut -d : -f 2,3 \`)
+	fmt.Fprintln(m.Out, `| tr -d \" \`)
+	fmt.Fprintln(m.Out, `| wget -qi -`)
+	fmt.Fprintln(m.Out, `RUN unzip Azure.Functions.*.zip -d /func-cli`)
+	fmt.Fprintln(m.Out, `RUN chmod +x /func-cli/func`)
+	fmt.Fprintln(m.Out, `RUN ln -s /func-cli/func /usr/bin/func`)
 
 	return nil
 }

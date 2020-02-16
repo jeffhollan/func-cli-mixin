@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/squillace/porter-azure-functions/pkg/functions"
 	"get.porter.sh/porter/pkg/porter/version"
+	"github.com/jeffhollan/func-cli-mixin/pkg/functions"
 	"github.com/spf13/cobra"
 )
 

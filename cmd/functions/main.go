@@ -5,7 +5,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/squillace/porter-azure-functions/pkg/functions"
+	"github.com/jeffhollan/func-cli-mixin/pkg/functions"
 	"github.com/spf13/cobra"
 )
 
